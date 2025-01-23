@@ -7,7 +7,7 @@ import SearchBar from '../components/SearchBar';
 function HomePages() {
   const [products, setProducts] = useState([]);
   const [searchQuery, setSearchQuery] = useState('');
-  const [popup, setPopup] = useState({ message: '', type: '' }); 
+  const [popup, setPopup] = useState({ message: '', type: '' });
   const navigate = useNavigate();
 
   // <------------------------------ Logout ------------------------------> //
@@ -34,9 +34,9 @@ function HomePages() {
       const upDatedProducts = [...products, product];
       setProducts(upDatedProducts);
       localStorage.setItem('products', JSON.stringify(upDatedProducts));
-      showPopup('Product added successfully!', 'success'); 
+      showPopup('Product added successfully!', 'success');
     } else {
-      alert('Product already exists!');
+      showPopup('Product already exists!', 'warning');
     }
   };
 
@@ -46,14 +46,14 @@ function HomePages() {
     updatedProducts.splice(index, 1);
     setProducts(updatedProducts);
     localStorage.setItem('products', JSON.stringify(updatedProducts));
-    showPopup('Product removed successfully!', 'error'); 
+    showPopup('Product removed successfully!', 'error');
   };
 
   // <----------------------------- Show Pop-up ------------------------------> //
   const showPopup = (message, type) => {
     setPopup({ message, type });
     setTimeout(() => {
-      setPopup({ message: '', type: '' }); 
+      setPopup({ message: '', type: '' });
     }, 2000);
   };
 
@@ -79,9 +79,12 @@ function HomePages() {
 
         {popup.message && (
           <div
-            className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg shadow-md text-white ${
-              popup.type === 'success' ? 'bg-green-500' : 'bg-red-500'
-            }`}
+            className={`fixed bottom-4 left-1/2 transform -translate-x-1/2 px-4 py-2 rounded-lg shadow-md text-white ${popup.type === 'success'
+                ? 'bg-green-500'
+                : popup.type === 'warning'
+                  ? 'bg-orange-500'
+                  : 'bg-red-500'
+              }`}
           >
             {popup.message}
           </div>
