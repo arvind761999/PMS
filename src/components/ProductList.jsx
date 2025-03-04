@@ -45,7 +45,7 @@ function ProductList({ products, searchQuery, removeProducts }) {
               className='bg-red-500 text-white 
               py-1 px-3 rounded hover:bg-red-600 mr-4'
             >
-              X
+              X 
             </button>
           </li>
         )
