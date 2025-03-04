@@ -39,6 +39,12 @@ const LoginPage = () => {
       <div className="flex flex-col items-center justify-center px-6 py-8 mx-auto md:h-screen lg:py-0">
         <div className="w-full bg-white rounded-lg shadow-md sm:max-w-md xl:p-0">
           <div className="p-6 space-y-4 md:space-y-6 sm:p-8">
+            <div>
+              <h1 className='text-red-500'>for logIn type </h1>
+              <h1 className='text-red-500'>Email: eve.holt@reqres.in</h1>
+              <h1 className='text-red-500'>password: tailwind</h1>
+
+            </div>
             <h1 className="text-xl font-bold leading-tight tracking-tight text-gray-900 md:text-2xl">
               Log in First
             </h1>
